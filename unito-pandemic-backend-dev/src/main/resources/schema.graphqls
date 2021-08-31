@@ -1,0 +1,113 @@
+type Contagion {
+    id: ID!
+    user_infective: User!
+    user_victim: User!
+    reference_simulation: Simulation!
+}
+
+input ContagionInput {
+    user_infective: UserInput!
+    user_victim: UserInput!
+    reference_simulation: SimulationInput!
+}
+
+type Detection {
+    id: ID!
+    latitude: Float!
+    longitude: Float!
+    pressure: Float
+    altitude: Float
+    timestamp: Int!
+    user_id: User!
+}
+
+input DetectionInput {
+    latitude: Float!
+    longitude: Float!
+    pressure: Float
+    altitude: Float
+    timestamp: Int!
+    user_id: UserInput!
+}
+
+type Disease {
+    id: ID!
+    name: String!
+    spread_probability: Float!
+}
+
+input DiseaseInput {
+    name: String!
+    spread_probability: Float!
+    simulation: [SimulationInput]
+}
+
+type Simulation {
+    id: ID!
+    timestamp: Int!
+    duration: Int!
+    disease: Disease
+    user: [User!]!
+}
+
+input SimulationInput {
+    timestamp: Int!
+    duration: Int!
+    disease: DiseaseInput
+    user: [UserInput!]!
+}
+
+type User {
+    id: ID!
+    email: String!
+    password: String!
+    pub_key: String!
+    age: Int!
+    gender: String!
+    infected: Boolean!
+    super_spreader: Boolean!
+}
+
+input UserInput {
+    email: String!
+    password: String!
+    pub_key: String!
+    age: Int!
+    gender: String!
+    infected: Boolean!
+    super_spreader: Boolean!
+    contagion: [ContagionInput]
+    detection: [DetectionInput!]
+    simulation: [SimulationInput]
+}
+
+type Query {
+    contagion(id: ID!): Contagion
+    detection(id: ID!): Detection
+    disease(id: ID!): Disease
+    simulation(id: ID!): Simulation
+    user(id: ID!): User
+    findAllContagion: [Contagion]
+    findAllDetection: [Detection]
+    findAllDisease: [Disease]
+    findAllSimulation: [Simulation]
+    findAllUser: [User]
+}
+
+type Mutation {
+    newUser(name: String!, email: String!, password: String!, pubKey: String!, age: Int!,
+        gender: String!, infected: Boolean!, superSpreader:Boolean!): User
+    newDisease(name: String!, spreadProbability: Float): Disease
+    newDetection(latitude: Float!, longitude: Float!, pressure: Float!, altitude: Float!,
+        timestamp: Int!, user: UserInput!): Detection
+    newContagion(infective: UserInput!, victim: UserInput): Contagion
+    newSimulation(timestamp: Int!, duration: Int!, disease: DiseaseInput!, user: UserInput!): Simulation
+
+    updateUser(id: ID!, name: String!, email: String!, password: String!, pubKey: String!, age: Int!,
+        gender: String!, infected: Boolean!, superSpreader:Boolean!): User
+    updateDisease(id: ID!, name: String!, spreadProbability: Float): Disease
+    updateDetection(id: ID!, latitude: Float!, longitude: Float!, pressure: Float!, altitude: Float!,
+        timestamp: Int!, user: UserInput!): Detection
+    updateContagion(id: ID!, infective: UserInput!, victim: UserInput): Contagion
+    updateSimulation(id: ID!, timestamp: Int!, duration: Int!, disease: DiseaseInput!, user: UserInput!): Simulation
+}

@@ -1,0 +1,65 @@
+class Resources {
+  String bacteriaImage;
+  String unitoLogo;
+  String contactsImage;
+  String maskImage;
+  String boyImage;
+  String virusImage;
+  String covidImage;
+  String generalBeaconImage;
+  String virusSpreadWall;
+  String contactTracingImage;
+  String caduceusImage;
+  String headacheImage;
+  String feverImage;
+  String coughImage;
+  String washinghandsImage;
+  String socialdistancingImage;
+  String littleHelperImage;
+  String bulbImage;
+  String italyflagImage;
+  String ukflagImage;
+  String avatarBoy;
+  String avatarGirl;
+  String gideon;
+  String pubkey;
+  String password;
+  String infected;
+  String ok;
+  String contagion;
+  String benedict;
+  String shield;
+
+  Resources() {
+    this.bacteriaImage = "lib/img/bacteria.png";
+    this.unitoLogo = "lib/img/unito.png";
+    this.contactsImage = "lib/img/contacts.png";
+    this.maskImage = "lib/img/medical-mask.png";
+    this.boyImage = "lib/img/boy.png";
+    this.virusImage = "lib/img/virus.png";
+    this.covidImage = "lib/img/bacteria.png";
+    this.generalBeaconImage = "lib/img/quarantine.png";
+    this.virusSpreadWall = "lib/img/spread.png";
+    this.contactTracingImage = "lib/img/dna.png";
+    this.caduceusImage = "lib/img/pharmacy.png";
+    this.headacheImage = "lib/img/headache.png";
+    this.feverImage = "lib/img/fever.png";
+    this.coughImage = "lib/img/cough.png";
+    this.washinghandsImage = "lib/img/washing-hands.png";
+    this.socialdistancingImage = "lib/img/social-distancing.png";
+    this.littleHelperImage = "lib/img/helper.png";
+    this.bulbImage = "lib/img/idea.png";
+    this.italyflagImage = "lib/img/italy.png";
+    this.ukflagImage = "lib/img/uk.png";
+    this.avatarBoy = "lib/img/m2.png";
+    this.avatarGirl = "lib/img/m1.png";
+    this.gideon = "lib/img/ai.png";
+    this.pubkey = "lib/img/key.png";
+    this.password = "lib/img/password.png";
+    this.infected = "lib/img/infected.png";
+    this.ok = "lib/img/ok.png";
+    this.contagion = "lib/img/contagion.png";
+    this.benedict = "lib/img/benedict.png";
+    this.shield = "lib/img/shield.png";
+  }
+}
